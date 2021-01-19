@@ -16,10 +16,10 @@ class CreateProdutosTable extends Migration
         Schema::create('produtos', function (Blueprint $table) {
             $table->increments('id')->unsigned();
             $table->string('nome');
-            $table->integer('codigo')->unsigned();
+            $table->bigInteger('codigo')->unsigned();
             $table->text('descricao');
-            $table->double('valor_compra');
-            $table->double('valor_venda');
+            $table->double('valor_compra', 15,2);
+            $table->double('valor_venda', 15,2);
             $table->boolean('ativo');
             $table->timestamps();
         });
