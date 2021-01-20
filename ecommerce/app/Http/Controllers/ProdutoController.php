@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Produto;
+use App\Models\Imagem;
 
 class ProdutoController extends Controller
 {
@@ -26,14 +27,15 @@ class ProdutoController extends Controller
         $produto->descricao = $request->descricao;
         $produto->valor_venda = $request->valor_venda;
         $produto->valor_compra = $request->valor_compra;
-        $produto->ativo = $request->ativo;
-
+        
         if($request->ativo){
             $produto->ativo = True;
         }
         else{
             $produto->ativo = False;
         }
+
+        $produto->save();
 
         //imagem
         if($request->hasFile('imagem') && $request->file('imagem')->isValid()){
@@ -44,22 +46,35 @@ class ProdutoController extends Controller
             $nomeImagem = md5($requestImagem->getClientOriginalName() . strtotime('now')) . "." . $extensao;
 
             $requestImagem->move(public_path('img/produtos'), $nomeImagem);
+
+
+            //$produto = Produto::find($produto->id);
+            
+            $imagem = new Imagem();
+
+            error_log("ID produto:". $produto);
+
+            $imagem->imagem = $nomeImagem;
+
+            $produto->imagens()->save($imagem);
+
         }
 
-        //$imagem = Imagem::findOrFail(4);
-        $imagens = $produto->imagens()->attach(4);
-        error_log("Imagem é: " . $imagem);
-
-
-        //$produto->save();
-
-
-
-
-        //$produto->imagens()->attach($produto->id);
-        #$produt = Produto::findOrFail($produto->id);
-
-
         return redirect('/')->with('msg', 'Produto salvo com sucesso');
+    }
+
+    public function addImagens($id){
+        
+        $produto = Produto::find($id);
+
+        error_log("Produto é: " . $produto);
+
+        $imagem = new Imagem();
+
+        $imagem->imagem = "uma imagem das mais legais vai entrar aqui ô";
+
+        $produto->imagens()->save($imagem);
+
+        return "imagem salva com sucesso, parabens";
     }
 }

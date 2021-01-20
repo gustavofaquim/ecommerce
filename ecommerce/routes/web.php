@@ -21,3 +21,4 @@ Route::get('/', function () {
 Route::get('/teste',[ProdutoController::class, 'index']);
 Route::get('/produtos/create',[ProdutoController::class, 'create']);
 Route::post('/produtos',[ProdutoController::class, 'store']);
+Route::get('/add-imagem/{id}',[ProdutoController::class, 'addImagens']);
