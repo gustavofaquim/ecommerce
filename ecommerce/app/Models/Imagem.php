@@ -7,6 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class Imagem extends Model
 {
-    use HasFactory;
-
+    //use HasFactory;
+    protected $fillable = ['imagem','produto_id'];
 }
