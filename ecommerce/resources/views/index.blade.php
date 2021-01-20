@@ -3,12 +3,15 @@
 <h1>Produtos</h1>
 
     @foreach($produtos as $produto)
-        <p>{{ $produto->nome }}</p>
+        <h2>{{ $produto->nome }}</h2>
         <p>{{ $produto->descricao }}</p>
         <p>{{ $produto->valor_venda }}</p>
-        @foreach($produto->imagens as imagens)
-            <p>{{ $produto->imagens }}</p>
-        @endforeach
+       
+       @foreach($produto->imagens as $key => $value)
+        <img src="/img/produtos/{{ $value['imagem'] }}" alt="{{ $produto->nome }}"> 
+       @endforeach
+      
+        
        
     @endforeach
 
