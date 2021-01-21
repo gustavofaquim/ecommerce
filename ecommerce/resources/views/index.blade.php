@@ -10,8 +10,6 @@
        @foreach($produto->imagens as $key => $value)
         <img src="/img/produtos/{{ $value['imagem'] }}" alt="{{ $produto->nome }}"> 
        @endforeach
-      
-        
        
     @endforeach
 
