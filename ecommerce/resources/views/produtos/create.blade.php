@@ -1,7 +1,8 @@
-<html>
+@extends('layouts.main')
 
+@section('title', 'Cadastrar produtos')
 
-<div>
+@section('content')
 
     <form action="/produtos" method="POST"  enctype="multipart/form-data">
     @csrf 
@@ -18,6 +19,4 @@
     
     </form>
 
-</div>
-
-</html>
+@endsection
