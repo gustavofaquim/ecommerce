@@ -14,6 +14,26 @@
         <script src="/js/script.js"></script>
     </head>
     <body>
+
+    <header>
+        <ul class="nav justify-content-center">
+        <li class="nav-item">
+                <a class="nav-link active" href="/">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link active" href="#">Login</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Cadastro</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Link</a>
+            </li>
+        </ul>
+    
+    </header>
+
+
     <main>
         <div class="container-fluid">
             <div class="row">
@@ -23,7 +43,9 @@
                 @yield('content')
             </div>
         </div>
-    </main>    
+    </main> 
+
+
     </body>
 
     <footer>

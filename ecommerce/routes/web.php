@@ -13,12 +13,12 @@ use App\Http\Controllers\ProdutoController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
 
-
-Route::get('/teste',[ProdutoController::class, 'index']);
+Route::get('/',[ProdutoController::class, 'index']);
 Route::get('/produtos/create',[ProdutoController::class, 'create']);
 Route::post('/produtos',[ProdutoController::class, 'store']);
 Route::get('/add-imagem/{id}',[ProdutoController::class, 'addImagens']);
+
+Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
+    return view('dashboard');
+})->name('dashboard');
