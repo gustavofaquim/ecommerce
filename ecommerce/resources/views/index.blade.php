@@ -18,9 +18,11 @@
                 <div class="card-body">
                     <h5 class="card-title">{{ $produto->nome }}</h5>
                     <p>R$ {{ $produto->valor_venda }}</p>
-                    @foreach($produto->caracteristicas as $key => $value)
-                        <h3> {{ $value['tipo'] }} {{ $value['valor'] }}  </h3>
+                    <ul>
+                    @foreach($produto->informacoes as $informacao)    
+                        <li>{{ $informacao }}</li>
                     @endforeach
+                    </ul>
                     
                 </div>
                 </a>
@@ -28,9 +30,9 @@
         @endforeach
 
         @if(count($produtos) == 0 && $search )
-            <p>Não foi possível encontrar nenhum evento com o termo {{ $search }} ! <a href="/">Ver todos</a></p>
+            <p>Não foi possível encontrar nenhum produto com o termo {{ $search }} ! <a href="/">Ver todos</a></p>
         @elseif(count($produtos) == 0)
-            <p>Não há eventos disponíveis</p>
+            <p>Não há produtos disponíveis</p>
         @endif
 
     </div>

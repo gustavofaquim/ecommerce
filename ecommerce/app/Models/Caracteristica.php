@@ -9,8 +9,8 @@ class Caracteristica extends Model
 {
     use HasFactory;
 
-    public function produtos(){
+    /*public function produtos(){
         return $this->belongsToMany(Produtos::class, 'produtos_caracteristicas_');
-    }
+    }*/
 
 }

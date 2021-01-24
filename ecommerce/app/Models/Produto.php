@@ -10,6 +10,11 @@ class Produto extends Model
 {
     use HasFactory;
 
+
+    protected $casts = [
+        'informacoes' => 'array'
+    ];
+
     protected $dates = ['date'];
 
     protected $guarded = []; 
@@ -24,7 +29,7 @@ class Produto extends Model
         return $this->belongsTo(Categoria::class);
      }
 
-    public function caracteristicas(){
+    /*public function caracteristicas(){
         return $this->belongsToMany(Caracteristica::class, 'produtos_caracteristicas_');
-    }
+    }*/
 }

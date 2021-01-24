@@ -19,6 +19,10 @@
             @endforeach 
         </select>
         <br>
+        Ficha Técnica: <br>
+        Informacoes: <input type="text" name="informacoes[]" >
+        Informacoes: <input type="text" name="informacoes[]" >
+        <br>
 
         <input type="file" name="imagem" id="imagem"> <br> <br>
 

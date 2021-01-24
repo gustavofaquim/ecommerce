@@ -35,8 +35,9 @@ class ProdutoController extends Controller
         $produto->valor_venda = $request->valor_venda;
         $produto->valor_compra = $request->valor_compra;
         $produto->categoria_id = $request->categoria;
+        $produto->informacoes = $request->informacoes;
 
-        error_log("ID Categoria: " . $request->categoria);
+        error_log("Informações: ". $request->informacoes[0]);
         
         if($request->ativo){
             $produto->ativo = True;
@@ -62,7 +63,6 @@ class ProdutoController extends Controller
             
             $imagem = new Imagem();
 
-            error_log("ID produto:". $produto);
 
             $imagem->imagem = $nomeImagem;
 
