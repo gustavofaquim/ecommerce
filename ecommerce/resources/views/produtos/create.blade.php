@@ -13,6 +13,13 @@
         Valor Venda: <input type="number" id="valor_venda" name="valor_venda"> <br>
         Ativo: <input type="checkbox" id="ativo" name="ativo"><br>
         
+        Categoria: <select name="categoria" id="categoria">
+            @foreach($categorias as $categoria)
+                <option value="{{ $categoria->id }}">{{ $categoria->nome }}</option>
+            @endforeach 
+        </select>
+        <br>
+
         <input type="file" name="imagem" id="imagem"> <br> <br>
 
         <input type="submit" value="Salvar Produto">

@@ -9,8 +9,6 @@ class Produto extends Model
 {
     use HasFactory;
 
-
-
     protected $dates = ['date'];
 
     protected $guarded = []; 
@@ -20,4 +18,8 @@ class Produto extends Model
         //return $this->hasMany(Imagem::class, 'produto_id');
         return $this->hasMany('App\Models\Imagem');
     }
+
+    public function categoria(){
+        return $this->belongsTo(Categoria::class);
+     }
 }

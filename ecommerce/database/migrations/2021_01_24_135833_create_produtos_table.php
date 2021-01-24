@@ -21,6 +21,8 @@ class CreateProdutosTable extends Migration
             $table->double('valor_compra', 15,2);
             $table->double('valor_venda', 15,2);
             $table->boolean('ativo');
+            $table->integer('categoria_id')->unsigned();
+            $table->foreign('categoria_id')->references('id')->on('categorias');
             $table->timestamps();
         });
     }

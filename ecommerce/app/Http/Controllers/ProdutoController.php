@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Produto;
 use App\Models\Imagem;
+use App\Models\Categoria;
 
 class ProdutoController extends Controller
 {
@@ -17,7 +18,10 @@ class ProdutoController extends Controller
     }
 
     public function create(){
-        return view('produtos.create');
+
+        $categorias = Categoria::all();
+
+        return view('produtos.create', ['categorias' => $categorias]);
     }
 
     public function store(Request $request){
@@ -27,6 +31,9 @@ class ProdutoController extends Controller
         $produto->descricao = $request->descricao;
         $produto->valor_venda = $request->valor_venda;
         $produto->valor_compra = $request->valor_compra;
+        $produto->categoria_id = $request->categoria;
+
+        error_log("ID Categoria: " . $request->categoria);
         
         if($request->ativo){
             $produto->ativo = True;

@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProdutoController;
+use App\Http\Controllers\CategoriaController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,10 +15,13 @@ use App\Http\Controllers\ProdutoController;
 |
 */
 
-
+//Produto
 Route::get('/',[ProdutoController::class, 'index']);
 Route::get('/produtos/create',[ProdutoController::class, 'create']);
 Route::post('/produtos',[ProdutoController::class, 'store']);
+//Categoria
+Route::get('/categorias/create', [CategoriaController::class, 'create']);
+Route::post('/categorias', [CategoriaController::class, 'store']);
 Route::get('/add-imagem/{id}',[ProdutoController::class, 'addImagens']);
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
