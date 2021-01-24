@@ -18,7 +18,10 @@
                 <div class="card-body">
                     <h5 class="card-title">{{ $produto->nome }}</h5>
                     <p>R$ {{ $produto->valor_venda }}</p>
-                   
+                    @foreach($produto->caracteristicas as $key => $value)
+                        <h3> {{ $value['tipo'] }} {{ $value['valor'] }}  </h3>
+                    @endforeach
+                    
                 </div>
                 </a>
             </div>

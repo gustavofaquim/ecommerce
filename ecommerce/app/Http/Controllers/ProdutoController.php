@@ -12,7 +12,8 @@ class ProdutoController extends Controller
     public function index(){
 
         $produtos = Produto::all();
-
+    
+        
         return view('index', ['produtos' => $produtos]);
 
     }
@@ -20,6 +21,8 @@ class ProdutoController extends Controller
     public function create(){
 
         $categorias = Categoria::all();
+
+        
 
         return view('produtos.create', ['categorias' => $categorias]);
     }
