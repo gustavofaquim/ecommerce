@@ -13,7 +13,7 @@
         <a href="/events/{{ $produto->id }}">
             <div class="card col-md-4">
             @foreach($produto->imagens as $key => $value)
-                <img src="/img/produtos/{{ $value['imagem'] }}" alt="{{ $produto->nome }}"> 
+                <img src="/img/produtos/{{ $value['imagem'] }}" class="imagem-capa" alt="{{ $produto->nome }}"> 
             @endforeach
                 <div class="card-body">
                     <h5 class="card-title">{{ $produto->nome }}</h5>
@@ -23,9 +23,9 @@
                         <li>{{ $informacao }}</li>
                     @endforeach
                     </ul>
-                    
                 </div>
                 </a>
+                <p>{{ $produto->categoria->nome }}</p>
             </div>
         @endforeach
 
