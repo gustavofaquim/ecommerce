@@ -20,14 +20,28 @@
         </select>
         <br>
         Ficha Técnica: <br>
-        Informacoes: <input type="text" name="informacoes[]" >
-        Informacoes: <input type="text" name="informacoes[]" >
-        <br>
+        <div id="informacaoes"></div>
+        <a href="#" id="btnAdd">Adicionar informações ao produto</a>
+        
 
-        <input type="file" name="imagem" id="imagem"> <br> <br>
+        <input type="file" name="imagem" id="imagem"> <br><br>
 
         <input type="submit" value="Salvar Produto">
-    
+        
     </form>
+
+    <script type="text/javascript">
+
+        var cont = 1;
+        $("#btnAdd").click(function(){
+            $("#informacaoes").prepend("<div id='informacaoes" + cont + "'>Informações: <input type='text' name='informacoes[]' class='info' id='info'> <a href='#' id='" + cont + "' class='btn-remove'>-</a></div> <br>");
+            cont++;
+        });
+        
+        $("form").on('click', '.btn-remove', function() {
+           var btn_id =  $(this).attr("id");
+           $("#informacaoes" + btn_id + "").remove();
+        });
+    </script>
 
 @endsection
