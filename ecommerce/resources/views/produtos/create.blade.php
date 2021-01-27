@@ -6,28 +6,25 @@
 
     <form action="/produtos" method="POST"  enctype="multipart/form-data">
     @csrf 
-        Codigo: <input type="text" id="codigo" name="codigo"> <br>
-        Nome:<input type="text"id="nome" name="nome"><br>
-        Descrição: <input type="text" id="descricao" name="descricao"><br>
-        Valor Compra: <input type="number" id="valor_compra" name="valor_compra"><br>
-        Valor Venda: <input type="number" id="valor_venda" name="valor_venda"> <br>
-        Ativo: <input type="checkbox" id="ativo" name="ativo"><br>
+        <p>Codigo: <input type="text" id="codigo" name="codigo"></p>
+        <p>Nome:<input type="text"id="nome" name="nome"></p>
+        <p>Descrição: <input type="text" id="descricao" name="descricao"></p>
+        <p>Valor Compra: <input type="number" id="valor_compra" name="valor_compra"></p>
+        <p>Valor Venda: <input type="number" id="valor_venda" name="valor_venda"></p>
+        <p>Ativo: <input type="checkbox" id="ativo" name="ativo"></p>
         
-        Categoria: <select name="categoria" id="categoria">
+        <p>
+            Categoria: <select name="categoria" id="categoria">
             @foreach($categorias as $categoria)
                 <option value="{{ $categoria->id }}">{{ $categoria->nome }}</option>
             @endforeach 
-        </select>
-        <br>
-        Ficha Técnica: <br>
-        <div id="informacaoes"></div>
+            </select>
+        </p>
+        <span>Ficha Técnica: <div id="informacoes"></div>
         <a href="#" id="btnAdd">Adicionar informações ao produto</a>
-        
-
-        <input type="file" name="imagem" id="imagem"> <br><br>
-
-        <input type="submit" value="Salvar Produto">
-        
+        </span>
+        <input type="file" name="imagem" id="imagem">
+        <input class="salvar" type="submit" value="Salvar Produto">
     </form>
 
     <script type="text/javascript">

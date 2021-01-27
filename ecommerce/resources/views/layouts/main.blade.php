@@ -20,7 +20,7 @@
 
     <header>
         <ul class="nav justify-content-center">
-        <li class="nav-item">
+            <li class="nav-item">
                 <a class="nav-link active" href="/">Home</a>
             </li>
             <li class="nav-item">
@@ -33,13 +33,12 @@
                 <a class="nav-link" href="#">Link</a>
             </li>
         </ul>
-    
     </header>
 
 
     <main>
-        <div class="container-fluid">
-            <div class="row">
+        <div class="container">
+            <div class="bloco">
                 @if(session('msg'))
                     <p class='msg'>{{ session('msg') }}</p>
                 @endif
