@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateCaracteristicasTable extends Migration
+class CreateClienteTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,13 @@ class CreateCaracteristicasTable extends Migration
      */
     public function up()
     {
-        Schema::create('caracteristicas', function (Blueprint $table) {
+        Schema::create('clientes', function (Blueprint $table) {
             $table->increments('id')->unsigned();
-            $table->string('tipo');
-            $table->string('valor');
+            $table->string('nome', 200);
+            $table->date('nascimento');
+            $table->bigInteger('cpf');
+            $table->string('email', 150);
+            $table->string('senha', 250);
             $table->timestamps();
         });
     }
@@ -28,6 +31,6 @@ class CreateCaracteristicasTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('caracteristicas');
+        Schema::dropIfExists('cliente');
     }
 }

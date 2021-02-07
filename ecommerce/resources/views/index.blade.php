@@ -29,8 +29,8 @@
             </div>
         @endforeach
 
-        @if(count($produtos) == 0 && $search )
-            <p>Não foi possível encontrar nenhum produto com o termo {{ $search }} ! <a href="/">Ver todos</a></p>
+        @if(count($produtos) == 0 && $search ?? '' ?? '' )
+            <p>Não foi possível encontrar nenhum produto com o termo {{ $search ?? '' ?? '' }} ! <a href="/">Ver todos</a></p>
         @elseif(count($produtos) == 0)
             <p>Não há produtos disponíveis</p>
         @endif
