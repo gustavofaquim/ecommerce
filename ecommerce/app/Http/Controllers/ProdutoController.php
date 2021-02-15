@@ -21,8 +21,8 @@ class ProdutoController extends Controller
         else{
             $produtos = Produto::all();
         }
-    
-        
+
+
         return view('index', ['produtos' => $produtos,'search'=>$search]);
 
     }
@@ -31,7 +31,7 @@ class ProdutoController extends Controller
 
         $categorias = Categoria::all();
 
-        
+
 
         return view('produtos.create', ['categorias' => $categorias]);
     }
@@ -44,10 +44,12 @@ class ProdutoController extends Controller
         $produto->valor_venda = $request->valor_venda;
         $produto->valor_compra = $request->valor_compra;
         $produto->categoria_id = $request->categoria;
-        $produto->informacoes = $request->informacoes;
-
-        error_log("Informações: ". $request->informacoes[0]);
-        
+        if($request->informacoes != null) {
+            $produto->informacoes = $request->informacoes;
+            error_log("Informações: " . $request->informacoes[0]);
+        }else{
+            $produto->informacoes = "";
+        }
         if($request->ativo){
             $produto->ativo = True;
         }
@@ -69,7 +71,7 @@ class ProdutoController extends Controller
 
 
             //$produto = Produto::find($produto->id);
-            
+
             $imagem = new Imagem();
 
 
@@ -83,7 +85,7 @@ class ProdutoController extends Controller
     }
 
     public function addImagens($id){
-        
+
         $produto = Produto::find($id);
 
         error_log("Produto é: " . $produto);

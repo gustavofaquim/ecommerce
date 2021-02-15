@@ -13,15 +13,17 @@
         <a href="/events/{{ $produto->id }}">
             <div class="card col-md-4">
             @foreach($produto->imagens as $key => $value)
-                <img src="/img/produtos/{{ $value['imagem'] }}" class="imagem-capa" alt="{{ $produto->nome }}"> 
+                <img src="/img/produtos/{{ $value['imagem'] }}" class="imagem-capa" alt="{{ $produto->nome }}">
             @endforeach
                 <div class="card-body">
                     <h5 class="card-title">{{ $produto->nome }}</h5>
                     <p>R$ {{ $produto->valor_venda }}</p>
                     <ul>
-                    @foreach($produto->informacoes as $informacao)    
-                        <li>{{ $informacao }}</li>
-                    @endforeach
+                    @if($produto->informacoes != "")
+                        @foreach($produto->informacoes as $informacao)
+                            <li>{{ $informacao }}</li>
+                        @endforeach
+                    @endif
                     </ul>
                 </div>
                 </a>
