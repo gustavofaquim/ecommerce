@@ -31,7 +31,7 @@
 
         var cont = 1;
         $("#btnAdd").click(function(){
-            $("#informacaoes").prepend("<div id='informacaoes" + cont + "'>Informações: <input type='text' name='informacoes[]' class='info' id='info'> <a href='#' id='" + cont + "' class='btn-remove'>-</a></div> <br>");
+            $("#informacoes").prepend("<div id='informacoes" + cont + "'>Informações: <input type='text' name='informacoes[]' class='info' id='info'> <a href='#' id='" + cont + "' class='btn-remove'>-</a></div> <br>");
             cont++;
         });
 
