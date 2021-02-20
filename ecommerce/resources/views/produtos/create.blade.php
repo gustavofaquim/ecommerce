@@ -4,19 +4,22 @@
 
 @section('content')
     
-
-    @if(isset($produto))
-        <h1>{{ $produto->nome }}</h1>
-    @endif
-
     <form action="/produtos" method="POST"  enctype="multipart/form-data">
     @csrf
-        <span>Codigo: <input class="inp" type="text" id="codigo" name="codigo"></span>
-        <span>Nome:<input  class="inp" type="text"id="nome" name="nome"></span>
-        <span>Descrição: <input  class="inp" type="text" id="descricao" name="descricao"></span>
-        <span>Valor Compra: <input  class="inp" type="number" id="valor_compra" name="valor_compra"></span>
-        <span>Valor Venda: <input  class="inp" type="number" id="valor_venda" name="valor_venda"></span>
-        <span>Ativo: <input type="checkbox" id="ativo" name="ativo"></span>
+    @if(isset($produto))
+        @method('PUT')
+    @endif
+        <span>Codigo: <input class="inp" type="text" id="codigo" name="codigo" @if(isset($produto)) value="{{$produto->codigo}}"@endif></span>
+        <span>Nome:<input  class="inp" type="text"id="nome" name="nome" @if(isset($produto)) value="{{$produto->nome}}"@endif></span>
+        <span>Descrição: <input  class="inp" type="text" id="descricao" name="descricao" @if(isset($produto)) value="{{$produto->descricao}}"@endif></span>
+        <span>Valor Compra: <input  class="inp" type="number" id="valor_compra" name="valor_compra" @if(isset($produto)) value="{{$produto->valor_compra}}"@endif></span>
+        <span>Valor Venda: <input  class="inp" type="number" id="valor_venda" name="valor_venda" @if(isset($produto)) value="{{$produto->valor_venda}}"@endif></span>
+        <span>Ativo: <input type="checkbox" id="ativo" name="ativo" 
+            @if(isset($produto)) 
+                @if($produto->ativo == True)
+                    checked="checked"
+                @endif
+            @endif></span>
 
         <span>
             Categoria: <select name="categoria" id="categoria">
@@ -25,14 +28,42 @@
             @endforeach
             </select>
         </span>
+
+
+        @if(isset($produto))
+            <span>
+           
+                @if($produto->informacoes != "")
+                        <p>Informações</p>
+                        @foreach($produto->informacoes as $informacao)
+                            <input type='text' name='informacoes[]' class='info' id='info' value="{{ $informacao }}">
+                        @endforeach
+                    @endif   
+            </span>
+        
+        @endif
+
         <span class="ficha">Ficha Técnica: <div id="informacoes"></div>
-        <a href="#" id="btnAdd">Adicionar informações ao produto</a>
+            <a href="#" id="btnAdd">Adicionar informações ao produto</a>
         </span>
+        
+        
+        @if(isset($produto))
+        <span>
+            @foreach($produto->imagens as $key => $value)
+                <img src="/img/produtos/{{ $value['imagem'] }}" class="imagem-capa" alt="{{ $produto->nome }}">
+            @endforeach
+        </span>
+        @endif
+        
+        
         <input type="file" name="imagem" id="imagem">
         <input class="salvar" type="submit" value="Salvar Produto">
     </form>
 
     <script type="text/javascript">
+
+        verificaVariavel(1);
 
         var cont = 1;
         $("#btnAdd").click(function(){

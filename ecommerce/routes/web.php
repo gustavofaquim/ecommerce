@@ -19,7 +19,7 @@ use App\Http\Controllers\CategoriaController;
 Route::get('/',[ProdutoController::class, 'index']);
 Route::get('/produtos/create',[ProdutoController::class, 'create'])->middleware('auth');
 Route::post('/produtos',[ProdutoController::class, 'store']);
-Route::get('/produtos/{id}', [ProdutoController::class, 'edit'])->middleware('auth');
+Route::get('/produtos/edit/{id}', [ProdutoController::class, 'edit'])->middleware('auth');
 //Categoria
 Route::get('/categorias/create', [CategoriaController::class, 'create'])->middleware('auth');
 Route::post('/categorias', [CategoriaController::class, 'store']);

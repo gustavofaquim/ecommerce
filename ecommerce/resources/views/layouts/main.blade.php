@@ -14,7 +14,7 @@
 
             <!-- CSS da aplicação -->
             <link rel="stylesheet" href="/css/style.css">
-            <script src="/js/script.js"></script>
+            <script src="/js/function.js"></script>
         </head>
 
         <header>

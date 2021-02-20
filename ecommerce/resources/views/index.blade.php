@@ -10,7 +10,7 @@
 
 <div id="cards-container" class="row">
         @foreach($produtos as $produto)
-        <a href="/events/{{ $produto->id }}">
+        <a href="/produtos/edit/{{ $produto->id }}">
             <div class="card col-md-4">
             @foreach($produto->imagens as $key => $value)
                 <img src="/img/produtos/{{ $value['imagem'] }}" class="imagem-capa" alt="{{ $produto->nome }}">
