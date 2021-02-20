@@ -4,7 +4,13 @@
 
 @section('content')
     
-    <form action="/produtos" method="POST"  enctype="multipart/form-data">
+    <form 
+    @if(isset($produto))
+        action="/produtos/update/{{ $produto->id }}" 
+    @else
+        action="/produtos"
+    @endif
+    method="POST"  enctype="multipart/form-data">
     @csrf
     @if(isset($produto))
         @method('PUT')

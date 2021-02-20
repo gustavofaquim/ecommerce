@@ -86,12 +86,41 @@ class ProdutoController extends Controller
     public function edit($id){
         $produto = Produto::findOrFail($id);
 
-
         $categorias = Categoria::all();
 
-        
-
         return view('produtos.create', ['produto' => $produto, 'categorias'=>$categorias]);
+    }
+
+    public function update(Request $request){
+        //Produto::findOrFail($request->id)->update($request->all());
+
+        $produto = Produto::findOrFail($request->id);
+        $produto->codigo = $request->codigo;
+        $produto->nome = $request->nome;
+        $produto->descricao = $request->descricao;
+        $produto->valor_venda = $request->valor_venda;
+        $produto->valor_compra = $request->valor_compra;
+        $produto->categoria_id = $request->categoria;
+
+        if($request->informacoes != null) {
+            $informacoes = array_filter($request->informacoes);
+            $produto->informacoes = $informacoes;
+            //error_log("Informações: " . $request->informacoes[0]);
+        }else{
+            $produto->informacoes = "";
+        }
+        if($request->ativo){
+            $produto->ativo = True;
+        }
+        else{
+            $produto->ativo = False;
+        }
+
+        $produto->update();
+
+        return redirect('/')->with('msg', 'Produto atualizado com sucesso');
+
+        
     }
 
 
