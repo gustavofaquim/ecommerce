@@ -17,10 +17,10 @@ use App\Http\Controllers\CategoriaController;
 
 //Produto
 Route::get('/',[ProdutoController::class, 'index']);
-Route::get('/produtos/create',[ProdutoController::class, 'create']);
+Route::get('/produtos/create',[ProdutoController::class, 'create'])->middleware('auth');
 Route::post('/produtos',[ProdutoController::class, 'store']);
 //Categoria
-Route::get('/categorias/create', [CategoriaController::class, 'create']);
+Route::get('/categorias/create', [CategoriaController::class, 'create'])->middleware('auth');
 Route::post('/categorias', [CategoriaController::class, 'store']);
 Route::get('/add-imagem/{id}',[ProdutoController::class, 'addImagens']);
 

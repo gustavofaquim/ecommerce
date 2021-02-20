@@ -23,7 +23,7 @@
                     <a class="nav-link active" href="/">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" href="#">Login</a>
+                    <a class="nav-link active" href="/register">Login</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/produtos/create">Cadastro Produtos</a>
