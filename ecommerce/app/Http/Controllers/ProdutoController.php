@@ -31,8 +31,6 @@ class ProdutoController extends Controller
 
         $categorias = Categoria::all();
 
-
-
         return view('produtos.create', ['categorias' => $categorias]);
     }
 
@@ -82,6 +80,18 @@ class ProdutoController extends Controller
         }
 
         return redirect('/')->with('msg', 'Produto salvo com sucesso');
+    }
+
+
+    public function edit($id){
+        $produto = Produto::findOrFail($id);
+
+
+        $categorias = Categoria::all();
+
+        
+
+        return view('produtos.create', ['produto' => $produto, 'categorias'=>$categorias]);
     }
 
 

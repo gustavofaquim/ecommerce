@@ -3,6 +3,11 @@
 @section('title', 'Cadastrar produtos')
 
 @section('content')
+    
+
+    @if(isset($produto))
+        <h1>{{ $produto->nome }}</h1>
+    @endif
 
     <form action="/produtos" method="POST"  enctype="multipart/form-data">
     @csrf
