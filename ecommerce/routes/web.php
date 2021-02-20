@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProdutoController;
 use App\Http\Controllers\CategoriaController;
+use App\Http\Controllers\ClienteController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,7 +26,9 @@ Route::put('/produtos/update/{id}', [ProdutoController::class, 'update'])->middl
 //Categoria
 Route::get('/categorias/create', [CategoriaController::class, 'create'])->middleware('auth');
 Route::post('/categorias', [CategoriaController::class, 'store']);
-Route::get('/add-imagem/{id}',[ProdutoController::class, 'addImagens']);
+
+//Clientes
+Route::get('/clientes/create', [ClienteController::class, 'create']);
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
