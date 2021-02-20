@@ -84,18 +84,5 @@ class ProdutoController extends Controller
         return redirect('/')->with('msg', 'Produto salvo com sucesso');
     }
 
-    public function addImagens($id){
 
-        $produto = Produto::find($id);
-
-        error_log("Produto é: " . $produto);
-
-        $imagem = new Imagem();
-
-        $imagem->imagem = "uma imagem das mais legais vai entrar aqui ô";
-
-        $produto->imagens()->save($imagem);
-
-        return "imagem salva com sucesso, parabens";
-    }
 }
