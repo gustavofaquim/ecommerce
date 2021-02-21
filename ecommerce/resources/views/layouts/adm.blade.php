@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-    <body lang="{{ str_replace('_', '-', app()->getLocale()) }}">
         <head>
             <meta charset="utf-8">
             <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -16,17 +15,33 @@
             <link rel="stylesheet" href="/css/style.css">
             <script src="/js/function.js"></script>
         </head>
-
+        <body>
+            
         <header>
             <ul class="nav justify-content-center">
                 <li class="nav-item">
-                    <a class="nav-link active" href="/">Home</a>
+                    <a class="nav-link active" href="/">Site Principal</a>
                 </li>
-                @guest
+                @auth
                 <li class="nav-item">
-                    <a class="nav-link active" href="#">Entrar</a>
+                <form action="/logout" method="POST">
+                  @csrf
+                  <a href="/logout" 
+                    class="nav-link" 
+                    onclick="event.preventDefault();
+                    this.closest('form').submit();">
+                    Sair
+                  </a>
+                </form>
+              </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/produtos/create">Cadastror Produtos</a>
                 </li>
-                @endguest
+                <li class="nav-item">
+                    <a class="nav-link" href="/categorias/create">Cadastrar Categorias</a>
+                </li>
+                
+                @endauth
 
             </ul>
         </header>
@@ -46,9 +61,6 @@
 
         <footer>
             <p>E-commerce</p>
-                <li class="nav-item">
-                    <a class="nav-link active" href="/dashboard">Adminstrativo</a>
-                </li>
         </footer>
     </body>
 </html>
