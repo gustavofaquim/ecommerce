@@ -26,6 +26,11 @@
     
     <p>{{ $produto->categoria->nome }}</p>
 
+    <form action="">
+        <input type="text" id='frete' name='frete'>
+        <input type="submit" value="Calular Frete">
+    </form>
+
     <button>Comprar</button>
 
 </div>
