@@ -22,7 +22,7 @@
             <span>Complemento:<input type="text" id='complemento' name='complemento'></span>
             <span>Numero:<input type="text" id='numero' name='numero'></span>
             <span>Ponto de referência:<input type="text" id='referencia' name='referencia'></span>
-            <span>Cep:<input type="text" id='cep' name='cep'></span>
+            <span>CEP:<input type="text" id='cep' name='cep'></span>
             <span>Cidade:<input type="text" id='cidade' name='cidade'></span>
         </fieldset>
     

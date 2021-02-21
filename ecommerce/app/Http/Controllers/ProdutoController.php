@@ -83,6 +83,12 @@ class ProdutoController extends Controller
     }
 
 
+    public function show($id){
+        $produto = Produto::findOrFail($id);
+
+        return view('produtos.show', ['produto'=>$produto]);
+    }
+
     public function edit($id){
         $produto = Produto::findOrFail($id);
 

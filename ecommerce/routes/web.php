@@ -22,6 +22,7 @@ Route::get('/produtos/create',[ProdutoController::class, 'create'])->middleware(
 Route::post('/produtos',[ProdutoController::class, 'store']);
 Route::get('/produtos/edit/{id}', [ProdutoController::class, 'edit'])->middleware('auth');
 Route::put('/produtos/update/{id}', [ProdutoController::class, 'update'])->middleware('auth');
+Route::get('/produtos/{id}', [ProdutoController::class, 'show']);
 
 //Categoria
 Route::get('/categorias/create', [CategoriaController::class, 'create'])->middleware('auth');

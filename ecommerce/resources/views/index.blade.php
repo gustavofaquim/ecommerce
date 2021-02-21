@@ -10,7 +10,7 @@
 
 <div id="cards-container" class="row">
         @foreach($produtos as $produto)
-        <a href="/produtos/edit/{{ $produto->id }}">
+        <a href="/produtos/{{ $produto->id }}">
             <div class="card col-md-4">
             @foreach($produto->imagens as $key => $value)
                 <img src="/img/produtos/{{ $value['imagem'] }}" class="imagem-capa" alt="{{ $produto->nome }}">
@@ -18,16 +18,9 @@
                 <div class="card-body">
                     <h5 class="card-title">{{ $produto->nome }}</h5>
                     <p>R$ {{ $produto->valor_venda }}</p>
-                    <ul>
-                    @if($produto->informacoes != "")
-                        @foreach($produto->informacoes as $informacao)
-                            <li>{{ $informacao }}</li>
-                        @endforeach
-                    @endif
-                    </ul>
                 </div>
                 </a>
-                <p>{{ $produto->categoria->nome }}</p>
+                
             </div>
         @endforeach
 
