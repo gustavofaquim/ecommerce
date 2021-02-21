@@ -24,12 +24,13 @@ Route::get('/produtos/edit/{id}', [ProdutoController::class, 'edit'])->middlewar
 Route::put('/produtos/update/{id}', [ProdutoController::class, 'update'])->middleware('auth');
 Route::get('/produtos/{id}', [ProdutoController::class, 'show']);
 
+
 //Adm
 
 
 //Categoria
 Route::get('/categorias/create', [CategoriaController::class, 'create'])->middleware('auth');
-Route::post('/categorias', [CategoriaController::class, 'store']);
+Route::post('/categorias', [CategoriaController::class, 'store'])->middleware('auth');
 
 //Clientes
 Route::get('/clientes/create', [ClienteController::class, 'create']);

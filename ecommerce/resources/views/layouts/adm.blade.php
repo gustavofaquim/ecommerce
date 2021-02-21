@@ -40,7 +40,13 @@
                 <li class="nav-item">
                     <a class="nav-link" href="/categorias/create">Cadastrar Categorias</a>
                 </li>
-                
+                <li class="nav-item">
+                    <a class="nav-link" href="/">Lista Produtos</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Lista Categorias</a>
+                </li>
+
                 @endauth
 
             </ul>

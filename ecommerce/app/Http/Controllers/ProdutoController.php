@@ -19,7 +19,11 @@ class ProdutoController extends Controller
             ])->get();
         }
         else{
-            $produtos = Produto::all();
+            //$produtos = Produto::all();
+            //Exibindo somente os produtos ativos
+            $produtos = Produto::where([
+                ['ativo', '=', True]
+            ])->get();
         }
 
 
