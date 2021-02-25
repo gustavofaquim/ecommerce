@@ -89,7 +89,8 @@ class ProdutoController extends Controller
 
     public function show($id){
         $produto = Produto::findOrFail($id);
-
+        
+        
         return view('produtos.show', ['produto'=>$produto]);
     }
 
@@ -128,8 +129,24 @@ class ProdutoController extends Controller
 
         $produto->update();
 
-        return redirect('/')->with('msg', 'Produto atualizado com sucesso');
+        return redirect('/')->with('msg', 'Produto atualizado com sucesso');  
+    }
 
+    public function list(){
+        $search = request('search');
+
+        if($search){
+            $produtos = Produto::where([
+                ['nome', 'like', '%'.$search.'%']
+            ])->get();
+        }
+        else{
+            //Exibindo todos os produtos
+            $produtos = Produto::all();
+            
+        }
+        return view('produtos.list', ['produtos' => $produtos,'search'=>$search]);
+        
         
     }
 

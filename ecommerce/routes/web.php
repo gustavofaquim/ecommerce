@@ -26,6 +26,10 @@ Route::get('/produtos/{id}', [ProdutoController::class, 'show']);
 
 
 //Adm
+Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
+    return view('dashboard');
+})->name('dashboard');
+Route::get('/produtos/list',[ProdutoController::class, 'list'])->middleware('auth');
 
 
 //Categoria
@@ -35,6 +39,3 @@ Route::post('/categorias', [CategoriaController::class, 'store'])->middleware('a
 //Clientes
 Route::get('/clientes/create', [ClienteController::class, 'create']);
 
-Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
-    return view('dashboard');
-})->name('dashboard');
