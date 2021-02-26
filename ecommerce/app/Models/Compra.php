@@ -5,17 +5,21 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Cliente extends Model
+
+class Compra extends Model
 {
     use HasFactory;
 
-
+    protected $casts = [
+        'produtos_id' => 'array'
+    ]; 
+    
     protected $guarded = []; 
 
-
-    public function enderecos(){
+    public function produtos(){
         //return $this->hasMany(Imagem::class, 'produto_id');
-        return $this->hasMany('App\Models\Endereco');
+        return $this->hasMany('App\Models\Produto');
     }
 
 }
+

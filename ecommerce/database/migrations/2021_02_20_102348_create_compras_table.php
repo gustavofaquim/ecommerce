@@ -15,6 +15,14 @@ class CreateComprasTable extends Migration
     {
         Schema::create('compras', function (Blueprint $table) {
             $table->increments('id')->unsigned();
+            $table->integer('produtos_id')->unsigned();
+            $table->integer('cliente_id')->unsigned();
+            $table->double('valor_total', 15,2);
+            $table->double('desconto', 15,2);
+            $table->double('valor_frete', 15,2);
+            $table->double('valor_final', 15,2);
+            $table->foreign('cliente_id')->references('id')->on('clientes');
+            $table->foreign('produtos_id')->references('id')->on('produtos');
             $table->timestamps();
         });
     }

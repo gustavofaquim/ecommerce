@@ -29,6 +29,11 @@ class Produto extends Model
         return $this->belongsTo(Categoria::class);
      }
 
+    public function compras(){
+        //return $this->hasMany(Imagem::class, 'produto_id');
+        return $this->hasMany('App\Models\Compra');
+    }
+
     /*public function caracteristicas(){
         return $this->belongsToMany(Caracteristica::class, 'produtos_caracteristicas_');
     }*/
