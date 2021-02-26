@@ -34,3 +34,5 @@
     <button>Comprar</button>
 
 </div>
+
+@endsection
