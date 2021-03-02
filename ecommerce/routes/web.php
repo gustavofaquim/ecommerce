@@ -18,6 +18,7 @@ use App\Http\Controllers\ClienteController;
 
 //Produto
 Route::get('/',[ProdutoController::class, 'index']);
+Route::get('/produtos/list', [ProdutoController::class, 'list'])->middleware('auth');
 Route::get('/produtos/create',[ProdutoController::class, 'create'])->middleware('auth');
 Route::post('/produtos',[ProdutoController::class, 'store']);
 Route::get('/produtos/edit/{id}', [ProdutoController::class, 'edit'])->middleware('auth');
@@ -29,7 +30,7 @@ Route::get('/produtos/{id}', [ProdutoController::class, 'show']);
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
-Route::get('/produtos/list',[ProdutoController::class, 'list'])->middleware('auth');
+
 
 
 //Categoria
